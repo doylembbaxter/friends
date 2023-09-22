@@ -1,0 +1,22 @@
+<h1>My Friends</h1>
+
+<br/>
+
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Twitter</th>
+      <th>Delete?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @friends.each do |friend| %>
+      <%= render partial: 'friend', locals: { friend: friend } %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New friend", new_friend_path, class:"btn btn-dark" %>

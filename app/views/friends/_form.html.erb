@@ -1,0 +1,52 @@
+<%= form_with(model: friend) do |form| %>
+  <% if friend.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
+
+      <ul>
+        <% friend.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :first_name, style: "font-weight: bold;" %>
+    <%= form.text_field :first_name, class:"form-control", placeholder:"Steve" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :last_name, style: "font-weight: bold;" %>
+    <%= form.text_field :last_name, class:"form-control", placeholder:"Jobs" %>
+  </div class="form-group">
+
+  <div class="field form-group">
+    <%= form.label :emoji, style: "font-weight: bold;" %>
+    <%= form.text_field :emoji, class:"form-control", placeholder:"📱" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :email, style: "font-weight: bold;" %>
+    <%= form.text_field :email, class:"form-control", placeholder:"steve@apple.com" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :phone, style: "font-weight: bold;" %>
+    <%= form.text_field :phone, class:"form-control", placeholder:"(123) 456-7890" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :twitter, style: "font-weight: bold;" %>
+    <%= form.text_field :twitter, class:"form-control", placeholder:"@SteveJobs" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.number_field :user_id, id: :friend_user_id, class:"form-control", value:current_user.id, type: :hidden %>
+  </div>
+
+  <div>
+    <%= form.submit class:"btn btn-outline-success btn-sm" %>
+    <%= link_to "Cancel", friend, class:"btn btn-outline-secondary btn-sm" %>
+  </div>
+<% end %>

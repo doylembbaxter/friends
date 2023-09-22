@@ -1,0 +1,13 @@
+<% if link.user == current_user %>
+  <tr id="<%= dom_id link %>">
+    <td><%= link_to link.title, link %></td>
+    <td><%= link_to "#{link.url}", "#{link.url}" %></td>
+    <td><%= button_to "Delete", 
+            link, method: :delete, 
+            class: "btn btn-outline-danger btn-sm", 
+            data: { 
+              turbo_method: :delete, 
+              turbo_confirm: "Are you sure?"
+              } %></td>
+  </tr>
+<% end %>

@@ -1,0 +1,14 @@
+<h1>Editing friend</h1>
+
+<%= render "form", friend: @friend %>
+
+<br/>
+
+<%= button_to "Delete #{@friend.first_name}", 
+    @friend, 
+    method: :delete, 
+    class:"btn btn-outline-danger btn-sm",
+    data: {
+        turbo_method: :delete, 
+        turbo_confirm: "Are you sure?"
+    } %>

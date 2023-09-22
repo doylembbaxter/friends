@@ -1,0 +1,14 @@
+<h1>Editing link</h1>
+
+<%= render "form", link: @link %>
+
+<br/>
+
+<%= button_to "Delete #{@link.title}", 
+    @link, 
+    method: :delete, 
+    class:"btn btn-outline-danger btn-sm",
+    data: {
+        turbo_method: :delete, 
+        turbo_confirm: "Are you sure?"
+    } %>

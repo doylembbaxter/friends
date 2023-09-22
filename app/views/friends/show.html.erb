@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-header">
+   <%= link_to "Back to Friends", friends_path %>
+  </div>
+  <div class="card-body">
+    <h1 class="card-title"><%= @friend.emoji + " " + @friend.first_name + " " + @friend.last_name %></h1>
+
+    <strong>Email:</strong>
+    <%= link_to "#{@friend.email}", "mailto:#{@friend.email}" %>
+    <br/>
+
+    <strong>Phone:</strong>
+    <%= @friend.phone %>
+    <br/>
+
+    <strong>Twitter:</strong>
+    <%= link_to "#{@friend.twitter}", "https://twitter.com/#{@friend.twitter}", target:"_blank" %>
+    <br/>
+
+    <br/>
+
+    <%= link_to "Edit #{@friend.first_name}'s Info", edit_friend_path(@friend), class:"btn btn-outline-secondary btn-sm" %>
+    <%= button_to "Delete #{@friend.first_name}", 
+        @friend, method: :delete, 
+        class: "btn btn-outline-danger btn-sm",
+        data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+        }%>
+  </div>
+</div>
