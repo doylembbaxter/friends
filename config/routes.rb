@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :link_groups
   
   devise_for :users
   
