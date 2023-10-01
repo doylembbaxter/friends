@@ -1,3 +1,5 @@
+# testing a change
+
 # used to be the contents of /home/_header.html.erb
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
