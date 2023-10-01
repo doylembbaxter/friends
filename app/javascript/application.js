@@ -2,7 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-import { application } from "stimulus"
+import { application } from "@hotwired/stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
 
 const context = require.context(".", true, /_controller\.js$/)
