@@ -77,7 +77,7 @@ class LinkGroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def link_group_params
-      params.require(:link_group).permit(:title, :user_id, :link_group_id)
+      params.require(:link_group).permit(:title, :user_id, :link_group_id, :description)
     end
     
 end
