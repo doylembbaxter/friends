@@ -1,3 +1,5 @@
+# used to be the contents of /home/_header.html.erb
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
   <%= link_to "Friends App", root_path, class:"navbar-brand" %>
@@ -52,3 +54,37 @@
     </form>
   </div>
 </nav>
+
+# used to be /links/show.html.erb
+
+<div class="card">
+  <div class="card-header">
+   <%= link_to "Back to Links", link_group_links_path %>
+  </div>
+  <div class="card-body">
+    <h1 class="card-title"><%= "#{@link.title}'s Website" %></h1>
+
+    <strong>Title:</strong>
+    <%= @link.title %>
+    <br/>
+
+    <strong>URL:</strong>
+    <%= link_to "#{@link.url}", "#{@link.url}", target:"_blank" %>
+    <br/>
+
+    <strong>Description:</strong>
+    <%= @link.description %>
+    <br/>
+
+    <br/>
+
+    <%= link_to "Edit #{@link.title}'s Info", edit_link_path(@link), class:"btn btn-outline-secondary btn-sm" %>
+    <%= button_to "Delete #{@link.title}", 
+        @link, method: :delete, 
+        class: "btn btn-outline-danger btn-sm",
+        data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+        }%>
+  </div>
+</div>

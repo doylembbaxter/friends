@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  resources :link_groups
+  
+  resources :link_groups do
+    resources :links
+  end
   
   devise_for :users
   
   resources :friends
-  resources :links
+
+  
   
   root 'home#index'
   # root 'home#index'

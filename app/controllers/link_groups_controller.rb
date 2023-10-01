@@ -10,6 +10,7 @@ class LinkGroupsController < ApplicationController
 
   # GET /link_groups/1 or /link_groups/1.json
   def show
+    @link_group = LinkGroup.find(params[:id])
   end
 
   # GET /link_groups/new
@@ -66,6 +67,8 @@ class LinkGroupsController < ApplicationController
     redirect_to link_groups_path, notice: "Not Authorized to Edit This Link Group" if @link_group.nil?
   end
 
+  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link_group
@@ -74,6 +77,7 @@ class LinkGroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def link_group_params
-      params.require(:link_group).permit(:title)
+      params.require(:link_group).permit(:title, :user_id, :link_group_id)
     end
+    
 end

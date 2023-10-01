@@ -1,10 +1,38 @@
-<p style="color: green"><%= notice %></p>
+<div class="card">
 
-<%= render @link_group %>
+  <div class="card-header">
+    <%= link_to "Back to Link Groups", link_groups_path %>
+  </div>
 
-<div>
-  <%= link_to "Edit this link group", edit_link_group_path(@link_group) %> |
-  <%= link_to "Back to link groups", link_groups_path %>
+  <div class="card-body">
+    <h1 class="card-title"><%= @link_group.title %></h1>
 
-  <%= button_to "Destroy this link group", @link_group, method: :delete %>
+    <div id="links">
+
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>Title</th>
+            <th>URL</th>
+            <th colspan="3">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render partial: 'links/link', collection: @link_group.links, as: :link %>
+        </tbody>
+      </table>
+
+      <%= link_to "Add a Link", new_link_group_link_path(@link_group), class:"btn btn-outline-secondary btn-sm" %>
+
+      <%= link_to "Edit #{@link_group.title}", edit_link_group_path(@link_group), class:"btn btn-outline-secondary btn-sm" %>
+      <%= button_to "Delete #{@link_group.title}", 
+          @link_group, method: :delete, 
+          class: "btn btn-outline-danger btn-sm",
+          data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+          }%>
+    </div>
+
 </div>
+

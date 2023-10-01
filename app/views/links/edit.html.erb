@@ -4,11 +4,10 @@
 
 <br/>
 
-<%= button_to "Delete #{@link.title}", 
-    @link, 
-    method: :delete, 
-    class:"btn btn-outline-danger btn-sm",
-    data: {
-        turbo_method: :delete, 
-        turbo_confirm: "Are you sure?"
-    } %>
+<%= button_to "Delete", 
+            [@link.link_group, @link], method: :delete, 
+            class: "btn btn-outline-danger btn-sm", 
+            data: { 
+              turbo_method: :delete, 
+              turbo_confirm: "Are you sure?"
+            } %>
