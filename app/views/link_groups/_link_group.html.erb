@@ -1,11 +1,11 @@
 <div id="<%= dom_id link_group %>">
   <p>
     <strong>Title:</strong>
-    <%= link_group.title %>
+    <%= link_group.emoji.present? ? "#{link_group.emoji} #{link_group.title}" : link_group.title %>
   </p>
 
   <p>
-    <strong>description:</strong>
+    <strong>Description:</strong>
     <%= link_group.description %>
   </p>
 

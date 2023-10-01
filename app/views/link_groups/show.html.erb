@@ -5,11 +5,24 @@
   </div>
 
   <div class="card-body">
-    <h1 class="card-title"><%= @link_group.title %></h1>
+    <h1 class="card-title"><%= @link_group.emoji.present? ? "#{@link_group.emoji} #{@link_group.title}" : @link_group.title %></h1>
 
-    <p><strong>Description:</strong><%= @link_group.description %></p>
+    <p><strong>Description: </strong><%= @link_group.description %></p>
+
+    <%= link_to "Edit #{@link_group.title}", edit_link_group_path(@link_group), class:"btn btn-outline-secondary btn-sm" %>
+    <%= button_to "Delete #{@link_group.title}", 
+          @link_group, method: :delete, 
+          class: "btn btn-outline-danger btn-sm",
+          data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+          }%>
+
+    <br><br>
 
     <div id="links">
+
+      <h2><%= "#{@link_group.title} Links" %></h2>
 
       <table class="table table-hover">
         <thead class="thead-dark">
@@ -26,14 +39,6 @@
 
       <%= link_to "Add a Link", new_link_group_link_path(@link_group), class:"btn btn-outline-secondary btn-sm" %>
 
-      <%= link_to "Edit #{@link_group.title}", edit_link_group_path(@link_group), class:"btn btn-outline-secondary btn-sm" %>
-      <%= button_to "Delete #{@link_group.title}", 
-          @link_group, method: :delete, 
-          class: "btn btn-outline-danger btn-sm",
-          data: {
-                  turbo_method: :delete,
-                  turbo_confirm: "Are you sure?"
-          }%>
     </div>
 
 </div>

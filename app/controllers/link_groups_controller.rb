@@ -5,7 +5,7 @@ class LinkGroupsController < ApplicationController
 
   # GET /link_groups or /link_groups.json
   def index
-    @link_groups = LinkGroup.all
+    @link_groups = current_user.link_groups
   end
 
   # GET /link_groups/1 or /link_groups/1.json
@@ -77,7 +77,7 @@ class LinkGroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def link_group_params
-      params.require(:link_group).permit(:title, :user_id, :link_group_id, :description)
+      params.require(:link_group).permit(:title, :user_id, :link_group_id, :description, :emoji)
     end
     
 end

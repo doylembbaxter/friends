@@ -5,11 +5,6 @@ class LinksController < ApplicationController
   def show
   end
 
-  # GET /links or /links.json
-  def index
-    @links = Link.all
-  end
-
   # GET /links/new
   def new
     @link = @link_group.links.build

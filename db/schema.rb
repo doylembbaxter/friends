@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_23_204029) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_01_174240) do
   create_table "friends", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -29,6 +29,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_23_204029) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.text "description"
+    t.string "emoji"
     t.index ["user_id"], name: "index_link_groups_on_user_id"
   end
 

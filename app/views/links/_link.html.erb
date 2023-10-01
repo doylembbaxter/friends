@@ -1,17 +1,15 @@
-<% if link.link_group.user == current_user %>
-  <tr id="<%= dom_id link %>">
-    <td><%= link.title %></td>
-    <td><%= link_to link.url, title: "#{link.url}" %></td>
+<tr id="<%= dom_id link %>">
+  <td><%= link.title %></td>
+  <td><%= link_to link.url, title: "#{link.url}" %></td>
 
-    <td><%= link_to "Edit", edit_link_group_link_path(link.link_group, link), class: "btn btn-secondary btn-sm" %></td>
-    <td><%= link_to "Show", link_group_link_path(link.link_group, link), class: "btn btn-secondary btn-sm" %></td>
+  <td><%= link_to "Edit", edit_link_group_link_path(link.link_group, link), class: "btn btn-secondary btn-sm" %></td>
+  <td><%= link_to "Show", link_group_link_path(link.link_group, link), class: "btn btn-secondary btn-sm" %></td>
 
-    <td><%= button_to "Delete", 
-            [link.link_group, link], method: :delete, 
-            class: "btn btn-outline-danger btn-sm", 
-            data: { 
-              turbo_method: :delete, 
-              turbo_confirm: "Are you sure?"
-            } %></td>
-  </tr>
-<% end %>
+  <td><%= button_to "Delete", 
+          [link.link_group, link], method: :delete, 
+          class: "btn btn-outline-danger btn-sm", 
+          data: { 
+            turbo_method: :delete, 
+            turbo_confirm: "Are you sure?"
+          } %></td>
+</tr>

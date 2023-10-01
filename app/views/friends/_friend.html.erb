@@ -1,16 +1,14 @@
-<% if friend.user == current_user %>
-  <tr id="<%= dom_id friend %>">
-    <td><%= link_to friend.emoji + " " + friend.first_name + " " + friend.last_name, friend %></td>
-    <td><%= link_to "#{friend.email}", "mailto:#{friend.email}" %></td>
-    <td><%= friend.phone %></td>
-    <td><%= link_to "#{friend.twitter}", "https://twitter.com/#{friend.twitter}", target:"_blank" %></td>
-    <td><%= button_to "Delete", 
-            friend, method: :delete, 
-            class: "btn btn-outline-danger btn-sm", 
-            data: { 
-              turbo_method: :delete, 
-              turbo_confirm: "Are you sure?"
-              } %></td>
-    
-  </tr>
-<% end %>
+<tr id="<%= dom_id friend %>">
+  <td><%= link_to friend.emoji + " " + friend.first_name + " " + friend.last_name, friend %></td>
+  <td><%= link_to "#{friend.email}", "mailto:#{friend.email}" %></td>
+  <td><%= friend.phone %></td>
+  <td><%= link_to "#{friend.twitter}", "https://twitter.com/#{friend.twitter}", target:"_blank" %></td>
+  <td><%= button_to "Delete", 
+          friend, method: :delete, 
+          class: "btn btn-outline-danger btn-sm", 
+          data: { 
+            turbo_method: :delete, 
+            turbo_confirm: "Are you sure?"
+            } %></td>
+  
+</tr>

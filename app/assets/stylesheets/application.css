@@ -14,7 +14,26 @@
  *= require_self
  */
 
- form.button_to {
+form.button_to {
     display: inline-block;
     margin-right: 10px; /* Optional: Add some space between the buttons */
 }
+
+.emoji-picker {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+.emoji {
+cursor: pointer;
+padding: 5px;
+font-size: 1.5em;
+}
+
+.emoji:hover {
+background-color: #f0f0f0;
+}
+
+.emoji.selected {
+    background-color: #f0f0f0;
+  }
