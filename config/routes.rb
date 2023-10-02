@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resources :links
   end
   
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+
+  resources :users, only: [:show]
   
   resources :friends
 

@@ -37,3 +37,20 @@ background-color: #f0f0f0;
 .emoji.selected {
     background-color: #f0f0f0;
   }
+
+.profile-picture-class {
+  width: 100px;           /* Set the width of the image */
+  height: 100px;          /* Set the height of the image */
+  object-fit: cover;      /* Crop the image to cover the content box */
+  border-radius: 50%;     /* Make the image round */
+  border: 2px solid #ccc; /* Optional: Add a border around the image */
+}
+
+.navbar-profile-pic {
+  width: 40px;            /* Adjust width as needed */
+  height: 40px;           /* Adjust height as needed */
+  object-fit: cover;      /* Ensure the image covers the entire content box */
+  border-radius: 50%;     /* Make the image round */
+  margin-right: 10px;     /* Add some margin if needed */
+  border: 2px solid white;
+}

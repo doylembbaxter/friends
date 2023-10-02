@@ -11,6 +11,21 @@
   </div>
 
   <div class="field form-group">
+    <%= f.label :profile_picture %>
+    <%= f.file_field :profile_picture %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :first_name, style: "font-weight: bold;" %><br/>
+    <%= f.text_field :first_name, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :last_name, style: "font-weight: bold;" %><br/>
+    <%= f.text_field :last_name, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
     <%= f.label :password, style: "font-weight: bold;" %>
     <% if @minimum_password_length %>
       <br/>

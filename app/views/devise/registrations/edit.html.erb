@@ -8,6 +8,28 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
   </div>
 
+  <div class="field form-group">
+    <% if resource.profile_picture.attached? %>
+      <%= image_tag :profile_picture, alt: "User's profile picture", class: 'profile-picture-class' %>
+      <%= "Edit Profile Picture:" %>
+      <%= f.file_field :profile_picture %>
+    <% else %>
+      <%= image_tag 'default_profile_picture.png', alt: "Default profile picture", class: 'profile-picture-class' %>
+      <%= "Add a Profile Picture:" %>
+      <%= f.file_field :profile_picture %>
+    <% end %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :first_name, style: "font-weight: bold;"%><br />
+    <%= f.text_field :first_name, autofocus: true, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :last_name, style: "font-weight: bold;"%><br />
+    <%= f.text_field :last_name, autofocus: true, class:"form-control" %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

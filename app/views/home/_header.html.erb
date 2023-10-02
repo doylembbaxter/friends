@@ -1,54 +1,43 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
   <%= link_to "Friends App", root_path, class:"navbar-brand" %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
+  <% if user_signed_in? %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-
       <li class="nav-item">
+        <%= link_to "My Friends", friends_path, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "My Links", link_groups_path, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-outline-light" %>
+      </li>
+    </ul>
+    <div class="navbar-nav">
+      <%= link_to user_path(current_user), class:"nav-link" do %>
+        <% if current_user %>
+          <span class="nav-item"><%= current_user.full_name %></span>
+          <% if current_user.profile_picture.attached? %>
+            <%= image_tag current_user.profile_picture, alt: "Profile Picture", class: "navbar-profile-pic" %>
+          <% else %>
+            <%= image_tag 'default_profile_picture.png', alt: "Default Profile Picture", class: "navbar-profile-pic" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <% else %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li>
         <%= link_to "About Us", home_about_path, class:"nav-link" %>
       </li>
-
-      
-      <% if user_signed_in? %>
-
-        <li class="nav-item">
-          <%= link_to "My Friends", friends_path, class:"nav-link" %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to "My Links", link_groups_path, class:"nav-link" %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to "My Account", edit_user_registration_path, class:"nav-link" %>
-        </li>
-
-        <li class="nav-item">
-          <%= button_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-outline-light" %>
-        </li>
-
-        
-      <% else %>
-
-        <li class="nav-item">
-          <%= link_to "Sign Up", new_user_registration_path, class:"nav-link" %>
-        </li>
-        
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class:"nav-link" %>
-        </li>
-
-      <% end %>
-
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <div>
+      <%= link_to "Login", new_user_session_path, class:"btn btn-dark" %>
+      <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-light" %>
+    </div>
   </div>
+  <% end %>
 </nav>
