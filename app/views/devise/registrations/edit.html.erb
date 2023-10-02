@@ -10,7 +10,7 @@
 
   <div class="field form-group">
     <% if resource.profile_picture.attached? %>
-      <%= image_tag :profile_picture, alt: "User's profile picture", class: 'profile-picture-class' %>
+      <%= image_tag resource.profile_picture, alt: "User's profile picture", class: 'profile-picture-class' %>
       <%= "Edit Profile Picture:" %>
       <%= f.file_field :profile_picture %>
     <% else %>
