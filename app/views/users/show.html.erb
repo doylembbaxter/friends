@@ -1,5 +1,12 @@
 <div class="card">
-  <h5 class="card-header"><%= @user.full_name %>'s Profile</h5>
+  <h5 class="card-header">
+    <% if current_user.profile_picture.attached? %>
+      <%= image_tag current_user.profile_picture, alt: "Profile Picture", class: "navbar-profile-pic-dark" %>
+    <% else %>
+      <%= image_tag 'default_profile_picture.png', alt: "Default Profile Picture", class: "navbar-profile-pic-dark" %>
+    <% end %>
+    <%= @user.full_name %>'s Profile
+    </h5>
   <div class="card-body">
     <h5 class="card-title">Special title treatment</h5>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>

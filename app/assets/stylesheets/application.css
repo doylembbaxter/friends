@@ -54,3 +54,12 @@ background-color: #f0f0f0;
   margin-right: 10px;     /* Add some margin if needed */
   border: 2px solid white;
 }
+
+.navbar-profile-pic-dark {
+  width: 40px;            /* Adjust width as needed */
+  height: 40px;           /* Adjust height as needed */
+  object-fit: cover;      /* Ensure the image covers the entire content box */
+  border-radius: 50%;     /* Make the image round */
+  margin-right: 10px;     /* Add some margin if needed */
+  border: 2px solid grey;
+}
